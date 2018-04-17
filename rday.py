@@ -9,11 +9,8 @@
 
 import datetime
 
-known_recycling_day = "2018-04-10"
 
-# converts a string of format yyyy-mm-dd into a datetime date object
-def string_to_date(date_str):
-  return datetime.date.today() # placeholder, tbc
+last_known_recycling_day = datetime.date(2018,04,10)
 
 # takes two dates and returns a boolean indicating whether the number of days 
 # difference between the two dates is a multiple of 14
@@ -30,16 +27,16 @@ def tomorrow():
 
 today = datetime.date.today()
 
-if fortnight_falls(known_recycling_day, today):
+if fortnight_falls(last_known_recycling_day, today):
   # then today is a recycling day
   pass
-elif fortnight_falls(known_recycling_day, tomorrow()):
+elif fortnight_falls(last_known_recycling_day, tomorrow()):
   # then tomorrow is a recycling day
   pass
-elif weekly_falls(known_recycling_day, today):
+elif weekly_falls(last_known_recycling_day, today):
   # then today is not recycling day
   pass
-elif weekly_falls(known_recycling_day, tomorrow()):
+elif weekly_falls(last_known_recycling_day, tomorrow()):
   # then tomorrow is not recycling day
   pass
 else:
