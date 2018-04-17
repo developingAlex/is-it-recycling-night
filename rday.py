@@ -52,6 +52,8 @@ def when_is_recycling_pickup(last_known_date, todays_date):
   
 
 last_known_recycling_day = datetime.date(2018,4,10)
+# Adjust the above value as necessary for your street
+# (the format is year, month, day)
 today = datetime.date.today()
 
 print("When is the next recycling day you ask?")
