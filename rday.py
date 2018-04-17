@@ -27,28 +27,31 @@ def weekly_falls(date1, date2):
 def tomorrow():
   return datetime.date.today() + datetime.timedelta(1)
 
-today = datetime.date.today()
+def when_is_recycling_pickup():
+  today = datetime.date.today()
 
-if fortnight_falls(last_known_recycling_day, today):
-  # then today is a recycling day
-  print("Today")
-elif fortnight_falls(last_known_recycling_day, tomorrow()):
-  # then tomorrow is a recycling day
-  print("Tomorrow")
-elif weekly_falls(last_known_recycling_day, today):
-  # then today is not recycling day
-  print("Not today")
-elif weekly_falls(last_known_recycling_day, tomorrow()):
-  # then tomorrow is not recycling day
-  print("Not tomorrow")
-else:
-  # if difference days % 14 > 7 it implies that we are now approaching another
-  # recycling day, therefore the answer should be "this coming..."
-  # if however the difference days % 14 < 7 then it should imply that we have
-  # recently had a collection and therefore it won't be this coming ("Not this 
-  # coming...")
-  if (last_known_recycling_day - today).days % 14 > 7:
-    print("This coming collection day")
+  if fortnight_falls(last_known_recycling_day, today):
+    # then today is a recycling day
+    return "Today"
+  elif fortnight_falls(last_known_recycling_day, tomorrow()):
+    # then tomorrow is a recycling day
+    return "Tomorrow"
+  elif weekly_falls(last_known_recycling_day, today):
+    # then today is not recycling day
+    return "Not today"
+  elif weekly_falls(last_known_recycling_day, tomorrow()):
+    # then tomorrow is not recycling day
+    return "Not tomorrow"
   else:
-    print("Not this coming collection day")
+    # if difference days % 14 > 7 it implies that we are now approaching another
+    # recycling day, therefore the answer should be "this coming..."
+    # if however the difference days % 14 < 7 then it should imply that we have
+    # recently had a collection and therefore it won't be this coming ("Not this 
+    # coming...")
+    if (last_known_recycling_day - today).days % 14 > 7:
+      return "This coming collection day"
+    else:
+      return "Not this coming collection day"
   
+print("When is the next recycling day you ask?")
+print(when_is_recycling_pickup())
