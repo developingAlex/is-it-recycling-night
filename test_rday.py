@@ -21,7 +21,10 @@ class rday_test_case(unittest.TestCase):
     def test_weekly_falls(self):
       date1 = datetime.date(2018,01,07)
       date2 = datetime.date(2018,01,14)
+      date3 = datetime.date(2018,01,09)
       self.assertTrue(
         weekly_falls(date1, date2)
       )
-
+      self.assertFalse(
+        weekly_falls(date1, date3)
+      )
