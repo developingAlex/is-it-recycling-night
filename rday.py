@@ -31,16 +31,16 @@ today = datetime.date.today()
 
 if fortnight_falls(last_known_recycling_day, today):
   # then today is a recycling day
-  pass
+  print("Today")
 elif fortnight_falls(last_known_recycling_day, tomorrow()):
   # then tomorrow is a recycling day
-  pass
+  print("Tomorrow")
 elif weekly_falls(last_known_recycling_day, today):
   # then today is not recycling day
-  pass
+  print("Not today")
 elif weekly_falls(last_known_recycling_day, tomorrow()):
   # then tomorrow is not recycling day
-  pass
+  print("Not tomorrow")
 else:
   # tbc, "This coming collection day" or "Not this coming collection day" 
   pass
