@@ -1,11 +1,12 @@
 # script to tell me if its recycling bin collection day with with a normal 
 # english sentence answer to the question: "when is recycling pickup?":
+# examples:
 # "Today"
 # "Not Today"   (if today is a normal garbage day)
 # "Tomorrow"
 # "Not Tomorrow"   (if tomorrow is a normal garbage day)
-# "This coming collection day"
-# "Not this coming collection day"
+# "This coming Tuesday" (if the collection day lands on a Tuesday)
+# "Not this coming Tuesday" (if the collection day lands on a Tuesday)
 
 import datetime
 
@@ -46,9 +47,10 @@ def when_is_recycling_pickup(last_known_date, todays_date):
     # recently had a collection and therefore it won't be this coming ("Not this 
     # coming...")
     if (abs(todays_date - last_known_date).days % 14) > 7:
-      return "This coming collection day"
+      return "This coming " + last_known_date.strftime("%A")
+      # %A extracts the name of the day of the week of the date
     else:
-      return "Not this coming collection day"
+      return "Not this coming " + last_known_date.strftime("%A")
   
 
 last_known_recycling_day = datetime.date(2018,4,10)
