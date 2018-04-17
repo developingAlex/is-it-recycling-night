@@ -51,7 +51,7 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           two_days_before_a_garbage_only_date
         ),
-        "Not this coming collection day"
+        "Not this coming Sunday"
       )
 
       self.assertEqual(
@@ -75,7 +75,7 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           a_day_after_a_garbage_only_date
         ),
-        "This coming collection day"
+        "This coming Sunday"
       )
       
       self.assertEqual(
@@ -83,7 +83,7 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           two_days_after_a_garbage_only_date
         ),
-        "This coming collection day"
+        "This coming Sunday"
       )
 
       self.assertEqual(
@@ -91,7 +91,7 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           two_days_before_a_garbage_recycling_date
         ),
-        "This coming collection day"
+        "This coming Sunday"
       )
       
       self.assertEqual(
@@ -115,7 +115,7 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           a_day_after_a_garbage_recycling_date
         ),
-        "Not this coming collection day"
+        "Not this coming Sunday"
       )
 
       self.assertEqual(
@@ -123,5 +123,5 @@ class rday_test_case(unittest.TestCase):
           last_known_pickup_date, 
           two_days_after_a_garbage_recycling_date
         ),
-        "Not this coming collection day"
+        "Not this coming Sunday"
       )
