@@ -21,7 +21,8 @@ def fortnight_falls(date1, date2):
 # same as fortnight falls but will return true if the day difference between
 #  the two dates is a mutliple of 7 instead of 14
 def weekly_falls(date1, date2):
-  return False #placeholder, tbc
+  difference = date1 - date2
+  return (difference.days % 7 == 0)
 
 def tomorrow():
   return datetime.date.today() + datetime.timedelta(1)
