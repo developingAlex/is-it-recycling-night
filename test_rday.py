@@ -2,9 +2,10 @@
 
 import unittest
 import datetime
-from rday import fortnight_falls
-from rday import weekly_falls
-from rday import when_is_recycling_pickup
+from rday import (
+  fortnight_falls, 
+  weekly_falls, 
+  when_is_recycling_pickup)
 
 class rday_test_case(unittest.TestCase):
 
@@ -38,7 +39,7 @@ class rday_test_case(unittest.TestCase):
       a_garbage_only_date = datetime.date(2018,1,14)
       a_day_after_a_garbage_only_date = datetime.date(2018,1,15)
       two_days_after_a_garbage_only_date = datetime.date(2018,1,16)
-      
+
       two_days_before_a_garbage_recycling_date = datetime.date(2018,1,19)
       a_day_before_a_garbage_recycling_date = datetime.date(2018,1,20)
       a_garbage_and_recycling_date = datetime.date(2018,1,21) 
