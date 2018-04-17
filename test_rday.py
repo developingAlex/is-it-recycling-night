@@ -8,9 +8,9 @@ from rday import weekly_falls
 class rday_test_case(unittest.TestCase):
 
     def test_fortnight_falls(self):
-      date1 = datetime.date(2018,01,07)
-      date2 = datetime.date(2018,01,14)
-      date3 = datetime.date(2018,01,21)
+      date1 = datetime.date(2018,1,7)
+      date2 = datetime.date(2018,1,14)
+      date3 = datetime.date(2018,1,21)
       self.assertFalse(
         fortnight_falls(date1, date2)
       )
@@ -19,9 +19,9 @@ class rday_test_case(unittest.TestCase):
       )
 
     def test_weekly_falls(self):
-      date1 = datetime.date(2018,01,07)
-      date2 = datetime.date(2018,01,14)
-      date3 = datetime.date(2018,01,09)
+      date1 = datetime.date(2018,1,7)
+      date2 = datetime.date(2018,1,14)
+      date3 = datetime.date(2018,1,9)
       self.assertTrue(
         weekly_falls(date1, date2)
       )
