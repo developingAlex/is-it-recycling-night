@@ -45,7 +45,7 @@ def when_is_recycling_pickup(last_known_date, todays_date):
     # if however the difference days % 14 < 7 then it should imply that we have
     # recently had a collection and therefore it won't be this coming ("Not this 
     # coming...")
-    if ((todays_date - last_known_date).days % 14) > 7:
+    if (abs(todays_date - last_known_date).days % 14) > 7:
       return "This coming collection day"
     else:
       return "Not this coming collection day"
