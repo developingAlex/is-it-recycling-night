@@ -10,8 +10,6 @@
 import datetime
 
 
-last_known_recycling_day = datetime.date(2018,4,10)
-
 # takes two dates and returns a boolean indicating whether the number of days 
 # difference between the two dates is a multiple of 14
 def fortnight_falls(date1, date2):
@@ -24,22 +22,21 @@ def weekly_falls(date1, date2):
   difference = date1 - date2
   return (difference.days % 7 == 0)
 
-def tomorrow():
-  return datetime.date.today() + datetime.timedelta(1)
+def tomorrow(todays_date):
+  return todays_date + datetime.timedelta(1)
 
-def when_is_recycling_pickup():
-  today = datetime.date.today()
-
-  if fortnight_falls(last_known_recycling_day, today):
+def when_is_recycling_pickup(last_known_date, todays_date):
+  
+  if fortnight_falls(last_known_date, todays_date):
     # then today is a recycling day
     return "Today"
-  elif fortnight_falls(last_known_recycling_day, tomorrow()):
+  elif fortnight_falls(last_known_date, tomorrow(todays_date)):
     # then tomorrow is a recycling day
     return "Tomorrow"
-  elif weekly_falls(last_known_recycling_day, today):
+  elif weekly_falls(last_known_date, todays_date):
     # then today is not recycling day
     return "Not today"
-  elif weekly_falls(last_known_recycling_day, tomorrow()):
+  elif weekly_falls(last_known_date, tomorrow(todays_date)):
     # then tomorrow is not recycling day
     return "Not tomorrow"
   else:
@@ -48,10 +45,14 @@ def when_is_recycling_pickup():
     # if however the difference days % 14 < 7 then it should imply that we have
     # recently had a collection and therefore it won't be this coming ("Not this 
     # coming...")
-    if (last_known_recycling_day - today).days % 14 > 7:
+    if ((todays_date - last_known_date).days % 14) > 7:
       return "This coming collection day"
     else:
       return "Not this coming collection day"
   
+
+last_known_recycling_day = datetime.date(2018,4,10)
+today = datetime.date.today()
+
 print("When is the next recycling day you ask?")
-print(when_is_recycling_pickup())
+print(when_is_recycling_pickup(last_known_recycling_day, today))
