@@ -42,5 +42,13 @@ elif weekly_falls(last_known_recycling_day, tomorrow()):
   # then tomorrow is not recycling day
   print("Not tomorrow")
 else:
-  # tbc, "This coming collection day" or "Not this coming collection day" 
-  pass
+  # if difference days % 14 > 7 it implies that we are now approaching another
+  # recycling day, therefore the answer should be "this coming..."
+  # if however the difference days % 14 < 7 then it should imply that we have
+  # recently had a collection and therefore it won't be this coming ("Not this 
+  # coming...")
+  if (last_known_recycling_day - today).days % 14 > 7:
+    print("This coming collection day")
+  else:
+    print("Not this coming collection day")
+  
