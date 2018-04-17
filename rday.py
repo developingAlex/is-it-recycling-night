@@ -15,7 +15,8 @@ last_known_recycling_day = datetime.date(2018,04,10)
 # takes two dates and returns a boolean indicating whether the number of days 
 # difference between the two dates is a multiple of 14
 def fortnight_falls(date1, date2):
-  return False #placeholder, tbc
+  difference = date1 - date2
+  return (difference.days % 14 == 0)
 
 # same as fortnight falls but will return true if the day difference between
 #  the two dates is a mutliple of 7 instead of 14
