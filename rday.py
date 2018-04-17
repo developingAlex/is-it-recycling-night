@@ -10,7 +10,7 @@
 import datetime
 
 
-last_known_recycling_day = datetime.date(2018,04,10)
+last_known_recycling_day = datetime.date(2018,4,10)
 
 # takes two dates and returns a boolean indicating whether the number of days 
 # difference between the two dates is a multiple of 14
