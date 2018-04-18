@@ -53,10 +53,11 @@ def when_is_recycling_pickup(last_known_date, todays_date):
       return "Not this coming " + last_known_date.strftime("%A")
   
 
-last_known_recycling_day = datetime.date(2018,4,10)
-# Adjust the above value as necessary for your street
-# (the format is year, month, day)
-today = datetime.date.today()
+if __name__ == '__main__': # ensures below doesnt run when script is imported
+  last_known_recycling_day = datetime.date(2018,4,10)
+  # Adjust the above value as necessary for your street
+  # (the format is year, month, day)
+  today = datetime.date.today()
 
-print("When is the next recycling day you ask?")
-print(when_is_recycling_pickup(last_known_recycling_day, today))
+  print("When is the next recycling day you ask?")
+  print(when_is_recycling_pickup(last_known_recycling_day, today))
